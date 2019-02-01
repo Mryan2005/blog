@@ -37,5 +37,5 @@ branches:
   - develop
 env:
   global:
-  - GH_WEB: github.com/Mryan2005/mryan2005.git
+  - GH_WEB: git.dev.tencent.com/Mryan05/myblog.git
   - GH_CODE: github.com/Mryan2005/myblog.git
