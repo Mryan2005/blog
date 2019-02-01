@@ -1,0 +1,39 @@
+language: node_js
+node_js: '6.4'
+cache:
+  apt: true
+  directories:
+  - node_modules
+before_install:
+- export TZ='Asia/Shanghai'
+install:
+- npm install hexo --save
+- npm install hexo-cli -g
+script:
+- cd blog
+- hexo clean
+- hexo g
+- git config user.name "Mryan2005"
+- git config user.email "40586009+Mryan2005@users.noreply.github.com"
+after_script:
+- cd public
+- git init
+- git remote add origin https://github.com/Mryan2005/mryan2005.github.io.git
+- git add .
+- git commit -m "Travis CI Auto Builder"
+- git push --force --quiet "https://${GH_Token}@${GH_WEB}" master:master
+- cd ..
+- cd ..
+- rm -rf .git
+- git init
+- git remote add origin https://github.com/Mryan2005/myblog.git
+- git add .
+- git commit -m "Travis CI Auto Push"
+- git push --force --quiet "https://${GH_Token}@${GH_CODE}" master:master
+branches:
+  only:
+  - 源代码
+env:
+  global:
+  - GH_WEB: github.com/Mryan2005/mryan2005.github.io.git
+  - GH_CODE: github.com/Mryan2005/myblog.git
