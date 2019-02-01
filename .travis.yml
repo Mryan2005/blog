@@ -32,7 +32,7 @@ after_script:
 - git push --force --quiet "https://${GH_Token}@${GH_CODE}" master:master
 branches:
   only:
-  - 源代码
+  - develop
 env:
   global:
   - GH_WEB: github.com/Mryan2005/mryan2005.git
