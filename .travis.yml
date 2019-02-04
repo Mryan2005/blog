@@ -14,14 +14,14 @@ script:
 - hexo clean
 - hexo g
 after_script:
-- git config user.name "Mryan05"
-- git config user.email "A2564011261@163.com"
+- git config --global user.name "Mr.yan"
+- git config --global user.email "a2564011261@163.com"
 - cd public
 - git init
-- git remote add origin https://git.dev.tencent.com/Mryan05/myblog.git
+- git remote add origin https://gitlab.com/Mryan2005/blog.git
 - git add .
 - git commit -m "Travis CI Auto Builder"
-- git push --force --quiet "https://${coding_Token}@${GH_WEB}" master:master
+- git push --force --quiet "https://${gitlab_Token}@${GH_WEB}" master:master
 - git config user.name "Mryan2005"
 - git config user.email "40586009+Mryan2005@users.noreply.github.com"
 - cd ..
@@ -37,5 +37,5 @@ branches:
   - develop
 env:
   global:
-  - GH_WEB: git.dev.tencent.com/Mryan05/myblog.git
+  - GL_WEB: gitlab.com/Mryan2005/blog.git
   - GH_CODE: github.com/Mryan2005/myblog.git
